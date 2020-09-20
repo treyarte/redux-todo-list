@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import { TextField } from '@material-ui/core';
 import './TodoList.css';
 
@@ -19,7 +20,7 @@ const TodoForm = ({ add_todo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    add_todo(formData.todo);
+    add_todo(formData.todo, uuid());
     setFormData(INITIAL_STATE);
   };
   return (
